@@ -4,6 +4,7 @@ bazel-genfiles
 bazel-out
 bazel-testlogs
 bazel-cel-cpp
+bazel-fork-cel-cpp
 *~
 clang.bazelrc
 user.bazelrc

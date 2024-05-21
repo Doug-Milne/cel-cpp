@@ -1,8 +1,9 @@
-build --cxxopt=-std=c++17 --host_cxxopt=-std=c++17
-build --cxxopt=-fsized-deallocation
+build --cxxopt=/std:c++17 --host_cxxopt=/std:c++17
 
 # Enable matchers in googletest
 build --define absl=1
+build --copt -D_WIN32=1
+build --copt -DPSAPI_VERSION=1
 
 build:asan --linkopt -ldl
 build:asan --linkopt -fsanitize=address

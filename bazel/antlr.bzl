@@ -67,7 +67,7 @@ def _antlr_library(ctx):
     for suffix in suffixes:
         header = ctx.actions.declare_file(basename + suffix + ".h")
         source = ctx.actions.declare_file(basename + suffix + ".cpp")
-        generated = output.path + "/" + ctx.file.src.path[:-3] + suffix
+        generated = output.path + "/" + ctx.file.src.basename[:-3] + suffix
 
         ctx.actions.run_shell(
             mnemonic = "CopyHeader" + suffix,

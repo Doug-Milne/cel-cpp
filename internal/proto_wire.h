@@ -59,18 +59,18 @@ VarintSize(T x) {
 }
 
 // Overload of `VarintSize()` handling signed 64-bit integrals.
-inline constexpr size_t VarintSize(int64_t x) {
+inline  size_t VarintSize(int64_t x) {
   return VarintSize(static_cast<uint64_t>(x));
 }
 
 // Overload of `VarintSize()` handling signed 32-bit integrals.
-inline constexpr size_t VarintSize(int32_t x) {
+inline  size_t VarintSize(int32_t x) {
   // Sign-extend to 64-bits, then size.
   return VarintSize(static_cast<int64_t>(x));
 }
 
 // Overload of `VarintSize()` for bool.
-inline constexpr size_t VarintSize(bool x ABSL_ATTRIBUTE_UNUSED) { return 1; }
+inline  size_t VarintSize(bool x ABSL_ATTRIBUTE_UNUSED) { return 1; }
 
 // Compile-time constant for the size required to encode any value of the
 // integral type `T` using varint.

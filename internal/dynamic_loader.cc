@@ -16,6 +16,7 @@
 
 #ifdef _WIN32
 #include <windows.h>
+#include <psapi.h>
 #else
 #include <dlfcn.h>
 #endif
@@ -29,7 +30,11 @@ DynamicLoader::DynamicLoader() {
   DWORD modules_capacity = 16;
   modules_ = new HMODULE[modules_capacity];
   while (true) {
+#ifdef _WIN32
+    if (!::EnumProcessModulesEx(::GetCurrentProcess(), modules_,
+#else
     if (!::EnumProcessModulesEx(::GetCurrentProcessHandle(), &modules_,
+#endif
                                 modules_capacity * sizeof(HMODULE),
                                 &modules_size_, LIST_MODULES_DEFAULT)) {
       // Give up. Fallback to check fail.

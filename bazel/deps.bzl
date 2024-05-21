@@ -79,7 +79,7 @@ cc_library(
     name = "cpp",
     srcs = glob(["runtime/Cpp/runtime/src/**/*.cpp"]),
     hdrs = glob(["runtime/Cpp/runtime/src/**/*.h"]),
-    defines = ["ANTLR4CPP_USING_ABSEIL"],
+    defines = ["ANTLR4CPP_USING_ABSEIL", "ANTLR4CPP_EXPORTS"],
     includes = ["runtime/Cpp/runtime/src"],
     deps = [
         "@com_google_absl//absl/base",

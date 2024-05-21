@@ -58,7 +58,7 @@ inline constexpr uintptr_t kByteStringReferenceCountPooledBit = uintptr_t{1}
 
 struct ABSL_ATTRIBUTE_PACKED SharedByteStringHeader final {
   // True if the content is `absl::Cord`.
-  bool is_cord : 1;
+  size_t is_cord : 1;
   // Only used when `is_cord` is `false`.
   size_t size : sizeof(size_t) * 8 - 1;
 
