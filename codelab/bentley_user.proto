@@ -1,0 +1,11 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "repl.Messages";
+
+message User {
+    string desc = 1;
+    string email = 2;
+    string userName = 3;
+}
+
+
